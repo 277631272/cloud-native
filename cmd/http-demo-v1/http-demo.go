@@ -12,6 +12,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 type helloworld struct {
 }
+
 func NewHelloworld() http.Handler {
 	return &helloworld{}
 }
@@ -23,5 +24,9 @@ func (h *helloworld) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/helloworld-v1", helloHandler)
 	http.Handle("/helloworld-v2", NewHelloworld())
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Printf("hello\n")
+		fmt.Fprintf(w, "hello")
+	})
 	http.ListenAndServe(":60000", nil)
 }
