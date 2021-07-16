@@ -18,8 +18,8 @@ func main() {
 		if err != nil {
 			klog.Fatalf("BuildConfigFromFlags failed, err: %s", err)
 		}
-		clientset := clientset.NewForConfigOrDie(config)
-		podList, err := clientset.CoreV1().Pods("default").List(context.TODO(), metav1.ListOptions{})
+		client := clientset.NewForConfigOrDie(config)
+		podList, err := client.CoreV1().Pods("default").List(context.TODO(), metav1.ListOptions{})
 		if err != nil {
 			klog.Fatalf("Pods List failed, err: %s", err)
 		}
@@ -41,11 +41,11 @@ func main() {
 			TLSClientConfig: tlsClientConfig,
 			BearerTokenFile: tokenFile,
 		}
-		clientset, err := clientset.NewForConfig(config)
+		client, err := clientset.NewForConfig(config)
 		if err != nil {
 			klog.Fatalf("NewForConfig failed, err: %s", err)
 		}
-		podList, err := clientset.CoreV1().Pods("default").List(context.TODO(), metav1.ListOptions{})
+		podList, err := client.CoreV1().Pods("default").List(context.TODO(), metav1.ListOptions{})
 		if err != nil {
 			klog.Fatalf("Pods List failed, err: %s", err)
 		}
