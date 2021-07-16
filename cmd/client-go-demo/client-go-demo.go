@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
-	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientset "k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/klog/v2"
 	"net"
+	"os"
 )
 
 func main() {
@@ -30,8 +30,11 @@ func main() {
 		rootCAFile := "./ca.crt"
 		tlsClientConfig := rest.TLSClientConfig{}
 		tlsClientConfig.CAFile = rootCAFile
-		host := "xxxxx"
-		port := "xxx"
+		host, port := os.Getenv("k8s_service_host"), os.Getenv("k8s_service_port")
+		if len(host) == 0 || len(port) == 0 {
+			klog.Fatalf("invalid evn k8s_service_host, k8s_service_port")
+		}
+		klog.Infof("host|port: %s:%s", host, port)
 		tokenFile := "./token"
 		config := &rest.Config{
 			Host:            "https://" + net.JoinHostPort(host, port),
@@ -48,5 +51,4 @@ func main() {
 		}
 		klog.Infof("podlist-v2: %v", podList)
 	}
-	klog.Infof(v1.NamespaceDefault)
 }
