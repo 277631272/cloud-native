@@ -1,0 +1,172 @@
+{
+    "VirtualClusterId": "cls-123",
+    "SidecarSpecs": [
+        {
+            "LivenessProbe": {
+                "FailureThreshold": 0,
+                "SuccessThreshold": 0,
+                "InitialDelaySeconds": 0,
+                "TimeoutSeconds": 0,
+                "PeriodSeconds": 0
+            },
+            "ContainerPort": 1,
+            "VolumeMounts": [
+                {
+                    "MountPropagation": "xx",
+                    "ReadOnly": true,
+                    "MountPath": "xx",
+                    "SubPath": "xx",
+                    "Name": "xx"
+                }
+            ],
+            "EnvVarSources": [
+                {
+                    "SecretKeyRef": {
+                        "Name": "xx",
+                        "Key": "xx"
+                    },
+                    "Name": "xx"
+                }
+            ],
+            "Volumes": [
+                {
+                    "Secret": {
+                        "SecretName": "xx"
+                    },
+                    "NFS": {
+                        "Path": "xx",
+                        "ReadOnly": true,
+                        "Server": "xx"
+                    },
+                    "Name": "xx"
+                }
+            ],
+            "ReadinessProbe": {
+                "FailureThreshold": 0,
+                "SuccessThreshold": 0,
+                "InitialDelaySeconds": 0,
+                "TimeoutSeconds": 0,
+                "PeriodSeconds": 0
+            },
+            "ContainerImage": "xx",
+            "EnvVar": [
+                {
+                    "Name": "xx",
+                    "Value": "xx"
+                }
+            ],
+            "Resources": {
+                "NvidiaGPU": "xx",
+                "Cpu": "xx",
+                "Memory": "xx"
+            }
+        }
+    ],
+    "Spec": {
+        "Volumes": [
+            {
+                "Secret": {
+                    "SecretName": "xx"
+                },
+                "NFS": {
+                    "Path": "xx",
+                    "ReadOnly": true,
+                    "Server": "xx"
+                },
+                "Name": "xx"
+            }
+        ],
+        "LivenessProbe": {
+            "FailureThreshold": 0,
+            "SuccessThreshold": 0,
+            "InitialDelaySeconds": 0,
+            "TimeoutSeconds": 0,
+            "PeriodSeconds": 0
+        },
+        "ImageSecretInfo": {
+            "UserName": "xx",
+            "RegistryServer": "xx",
+            "Password": "xx",
+            "Email": "xx"
+        },
+        "ImagePullSecret": "xx",
+        "Replicas": 0,
+        "NameServers": "xx",
+        "RollingUpdate": {
+            "MaxSurge": {
+                "StrVal": "xx",
+                "Type": 0,
+                "IntVal": 0
+            },
+            "MaxUnavailable": {
+                "StrVal": "xx",
+                "Type": 0,
+                "IntVal": 0
+            }
+        },
+        "ContainerPort": 0,
+        "VolumeMounts": [
+            {
+                "MountPropagation": "xx",
+                "ReadOnly": true,
+                "MountPath": "xx",
+                "SubPath": "xx",
+                "Name": "xx"
+            }
+        ],
+        "DNSPolicy": "xx",
+        "NodeSelector": [
+            {
+                "Name": "xx",
+                "Value": "xx"
+            }
+        ],
+        "DnsNameServers": [
+            "xx"
+        ],
+        "DNSConfigOptions": [
+            {
+                "Name": "xx",
+                "Value": "xx"
+            }
+        ],
+        "ContainerConcurrency": 1,
+        "ReadinessProbe": {
+            "FailureThreshold": 0,
+            "SuccessThreshold": 0,
+            "InitialDelaySeconds": 0,
+            "TimeoutSeconds": 0,
+            "PeriodSeconds": 0
+        },
+        "ContainerImage": "xx",
+        "EnvVarSources": [
+            {
+                "SecretKeyRef": {
+                    "Name": "xx",
+                    "Key": "xx"
+                },
+                "Name": "xx"
+            }
+        ],
+        "EnvVar": [
+            {
+                "Name": "xx",
+                "Value": "xx"
+            }
+        ],
+        "Resources": {
+            "NvidiaGPU": "xx",
+            "Cpu": "xx",
+            "Memory": "xx"
+        }
+    },
+    "Metadata": {
+        "Annotations": [
+            {
+                "Name": "xx",
+                "Value": "xx"
+            }
+        ],
+        "Name": "xx"
+    }
+}

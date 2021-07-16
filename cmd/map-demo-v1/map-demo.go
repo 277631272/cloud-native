@@ -5,6 +5,7 @@ import (
 	"github.com/pkg/errors"
 	"math/rand"
 	"reflect"
+	"strings"
 	"sync"
 	"time"
 )
@@ -102,6 +103,35 @@ func main() {
 		}
 	}
 
+	// map rbac
+	{
+		rbac := "true"
+		productName := "Grafana"
+		if rbac == "true" && AllowRbac(productName) {
+			fmt.Println("open rbac, productName:", productName)
+		} else {
+			fmt.Println("close rbac, productName:", productName)
+		}
+	}
+
+}
+
+const (
+	CloudRun = "cloudrun"
+	Tps      = "prometheus"
+	Tps2     = "grafana"
+	Tme      = "tem"
+)
+
+func AllowRbac(productName string) bool {
+	fmt.Println("productName1:", productName)
+	productName = strings.ToLower(productName)
+	fmt.Println("productName2:", productName)
+
+	if productName == CloudRun || productName == Tps || productName == Tps2 || productName == Tme {
+		return false
+	}
+	return true
 }
 
 func f1() error {
