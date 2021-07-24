@@ -8,7 +8,7 @@ all: $(CMD_TARGETS)
 
 #$(CMD_TARGETS): proto
 $(CMD_TARGETS):
-	export GOOS="linux" && CGO_ENABLED=0 go build -o $(OUTPUT_DIR)/$@ ./cmd/$@
+	export GOOS="darwin" && CGO_ENABLED=0 go build -o $(OUTPUT_DIR)/$@ ./cmd/$@
 
 #proto: protocol/*.proto
 #	@bash scripts/codegen.sh protocol ./protocol/*.proto protocol/pb/go
